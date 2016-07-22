@@ -84,8 +84,6 @@ public class newMoveScript : MonoBehaviour {
 		float rightX = Input.GetAxis ("RotateX2");
 		float rightY = Input.GetAxis ("RotateY2");
 
-
-
 		Vector2 leftStickVector = new Vector2 (leftX, leftY);
 		float leftStickDisplacement = leftStickVector.magnitude; //length of the vector
 

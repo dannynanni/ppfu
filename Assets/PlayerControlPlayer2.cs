@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.SceneManagement;
 
 public class PlayerControlPlayer2 : MonoBehaviour {
 
