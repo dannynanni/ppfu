@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using InControl;
 
 public class PlayerControl : MonoBehaviour {
 
@@ -229,7 +230,7 @@ public class PlayerControl : MonoBehaviour {
 	{
 			
 		if (!disableInput) {
-			if (Input.GetButtonDown ("Fire1")) {
+			if (InputManager.ActiveDevice.RightTrigger.WasPressed) {//Input.GetButtonDown ("Fire1")) {
 				Shoot ();
 				fire.Play ();
 			}

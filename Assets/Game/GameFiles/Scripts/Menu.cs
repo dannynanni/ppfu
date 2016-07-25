@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using InControl;
 
 public class Menu : MonoBehaviour {
 
@@ -11,7 +12,7 @@ public class Menu : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-		if (Input.GetButtonDown ("Fire1")) {
+		if (InputManager.ActiveDevice.RightTrigger.WasPressed) {// Input.GetButtonDown ("Fire1")) {
 			StartGame(1);
 		}
 	}

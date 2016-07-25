@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using InControl;
 
 public class P2Control : MonoBehaviour {
 
@@ -227,7 +228,7 @@ public class P2Control : MonoBehaviour {
 	{
 
 		if (!disableInput) {
-			if (Input.GetButtonDown ("Fire2")) {
+			if (InputManager.ActiveDevice.LeftTrigger.WasPressed) {//Input.GetButtonDown ("Fire2")) {
 				Shoot ();
 				fire.Play ();
 			}

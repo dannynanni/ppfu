@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using InControl;
 
 public class MenuManager : MonoBehaviour {
 
@@ -15,11 +16,11 @@ public class MenuManager : MonoBehaviour {
 //			StartGame(4);
 //		}
 
-		if (Input.GetButtonDown ("Load2P")) {
+		if (InputManager.ActiveDevice.Action2.WasPressed) {//Input.GetButtonDown ("Load2P")) {
 			StartGame (1);
 		}
 
-		if (Input.GetButtonDown ("ResetGame")) {
+		if (InputManager.ActiveDevice.Command.WasPressed) {//Input.GetButtonDown ("ResetGame")) {
 			StartGame (0);
 		}
 	}

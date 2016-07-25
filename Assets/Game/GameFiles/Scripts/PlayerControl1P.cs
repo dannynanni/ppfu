@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using InControl;
 
 public class PlayerControl2 : MonoBehaviour {
 	
@@ -159,7 +160,7 @@ public class PlayerControl2 : MonoBehaviour {
 		
 		//			tempVector.y = 0;
 		//			inputRotation = tempVector - tempVector2; 
-		if (Input.GetButtonDown ("Fire1")) {
+		if (InputManager.ActiveDevice.RightTrigger.WasPressed) {//Input.GetButtonDown ("Fire1")) {
 			Shoot();
 			fire.Play ();
 		}

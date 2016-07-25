@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using InControl;
 
 public class newMoveScript : MonoBehaviour {
 
@@ -79,10 +80,10 @@ public class newMoveScript : MonoBehaviour {
 
 	void StickInput ()
 	{
-		float leftX = Input.GetAxis ("RotateX");
-		float leftY = Input.GetAxis ("RotateY");
-		float rightX = Input.GetAxis ("RotateX2");
-		float rightY = Input.GetAxis ("RotateY2");
+		float leftX = InputManager.ActiveDevice.LeftStick.X;//Input.GetAxis ("RotateX");
+		float leftY = InputManager.ActiveDevice.LeftStick.Y;//Input.GetAxis ("RotateY");
+		float rightX = InputManager.ActiveDevice.RightStick.X;//Input.GetAxis ("RotateX2");
+		float rightY = InputManager.ActiveDevice.RightStick.Y;//Input.GetAxis ("RotateY2");
 
 		Vector2 leftStickVector = new Vector2 (leftX, leftY);
 		float leftStickDisplacement = leftStickVector.magnitude; //length of the vector

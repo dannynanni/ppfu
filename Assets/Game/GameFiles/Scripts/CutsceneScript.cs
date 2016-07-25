@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using InControl;
 
 public class CutsceneScript : MonoBehaviour {
 
@@ -20,7 +21,7 @@ public class CutsceneScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-		if (Input.GetButtonDown ("Skip")) {
+		if (InputManager.ActiveDevice.AnyButton) {//Input.GetButtonDown ("Skip")) {
 
 			Application.LoadLevel (1);
 		}
