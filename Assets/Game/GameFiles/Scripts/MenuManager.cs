@@ -12,9 +12,6 @@ public class MenuManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-//		if (Input.GetButtonDown ("Load1P")) {
-//			StartGame(4);
-//		}
 
 		if (InputManager.ActiveDevice.Action2.WasPressed) {//Input.GetButtonDown ("Load2P")) {
 			StartGame (1);

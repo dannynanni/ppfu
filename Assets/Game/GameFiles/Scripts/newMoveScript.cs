@@ -61,20 +61,7 @@ public class newMoveScript : MonoBehaviour {
 					transform.parent.rotation = Quaternion.Euler(new Vector3 (0, 0, myClamp));
 				}
 			} 
-
-//			else if (transform.parent.rotation.eulerAngles.z >= myClampAlt && (transform.parent.rotation.eulerAngles.z >= (myClamp + myClampAlt) / 2f)) 
-//			{
-//				transform.parent.rotation = Quaternion.Euler(new Vector3 (0, 0, myClampAlt));
-//			}
-
-//			if (transform.parent.rotation.eulerAngles.z < 360 && transform.parent.rotation.eulerAngles.z <= myClamp) 
-//			{
-//				transform.parent.rotation = Quaternion.Euler(new Vector3 (0, 0, myClamp));
-//			} 
-//			else if (transform.parent.rotation.eulerAngles.z >= 0 && transform.parent.rotation.eulerAngles.z >= myClampAlt) 
-//			{
-//				transform.parent.rotation = Quaternion.Euler(new Vector3 (0, 0, myClampAlt));
-//			}
+				
 		}
 	}
 

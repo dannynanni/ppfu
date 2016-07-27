@@ -25,7 +25,6 @@ public class MothershipScript : MonoBehaviour {
 			Instantiate (particle, this.transform.position, this.transform.rotation);
 			gameOverSound.Play ();
 			GetComponent<ShakeCamera> ().BeginContact (Vector2.zero);
-			//gameOverSound.Play ();
 			GetComponent<SpriteRenderer>().enabled = false;
 			Destroy (thisCollision.gameObject);
 			LoadGameOver();
@@ -36,7 +35,6 @@ public class MothershipScript : MonoBehaviour {
 			Instantiate (particle, this.transform.position, this.transform.rotation);
 			gameOverSound.Play ();
 			GetComponent<ShakeCamera> ().BeginContact (Vector2.zero);
-			//gameOverSound.Play ();
 			GetComponent<SpriteRenderer>().enabled = false;
 			Destroy (thisCollision.gameObject);
 			LoadGameOver();

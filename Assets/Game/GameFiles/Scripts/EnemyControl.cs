@@ -9,12 +9,9 @@ public class EnemyControl : MonoBehaviour {
 	GameObject mothership;
 	GameObject game;
 	GameObject player;
-	//PlayerControl2 playerNew;
 
-	//float moveForce= 0.4f;
 	float moveForce = 0.09999999f;
-		//Random.Range (0.2f,0.1f);
-	
+
 	float timeSinceSpawn;
 	float moveDelay = 0.01f; 
 	bool hasPlayedSound;
@@ -33,7 +30,6 @@ public class EnemyControl : MonoBehaviour {
 		hasPlayedSound = false;
 
 		player = GameObject.Find("ship");
-		//playerNew = player.GetComponent<PlayerControl2>();
 	} 
 
 	void Update () {

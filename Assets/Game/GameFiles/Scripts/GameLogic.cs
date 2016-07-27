@@ -88,7 +88,6 @@ public class GameLogic : MonoBehaviour {
 
 	void SpawnBoss (){
 
-		//Vector3 randomBossPos = new Vector3 (Random.Range(-40f, 40f), Random.Range(-30f, 30f), 0);
 
 		Vector2 newBossPosition;
 		float enemyBossDistance = Random.Range (27f, 42f);
@@ -104,7 +103,6 @@ public class GameLogic : MonoBehaviour {
 
 	IEnumerator SpawnBossTimer () {
 		while (true) {
-			//SpawnBoss ();
 			Debug.Log ("SpawnBossTimer");
 			yield return new WaitForSeconds(20f);
 			SpawnBoss();

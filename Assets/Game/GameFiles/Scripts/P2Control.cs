@@ -56,107 +56,21 @@ public class P2Control : MonoBehaviour {
 		leftStickAngle = 0;
 		rightStickAngle = 0;
 
-		//		ptrScriptVariable = (VariableScript) player.GetComponent( typeof(VariableScript) );
+
 	}
 
 	// Update is called once per frame
 	void Update () {
 
-		//GetJoystickAngles ();
-
-		//		if (Input.GetKey (KeyCode.A)) {
-		//			RotateLeft ();
-		//			rotate.Play ();
-		//		}
-		//
-		//		if (Input.GetKey (KeyCode.D)) {
-		//			RotateRight ();
-		//			rotate.Play ();
-		//		}
-		//
-		//		if (Input.GetKey (KeyCode.H)) {
-		//			SpinLeft ();
-		//			spin.Play ();
-		//		}
-		//
-		//		if (Input.GetKey (KeyCode.K)) {
-		//			SpinRight ();
-		//			spin.Play ();
-		//		}
-
-		//rotate parent based on leftstickangle
-		//		float newAngle = Mathf.LerpAngle (transform.parent.eulerAngles.z, leftStickAngle, 0.2f);
-		//		if (Mathf.Abs (newAngle - leftStickAngle) < 0.01f) {
-		//			newAngle = leftStickAngle;
-		//			if (newAngle >= 180) {
-		//			
-		//				newAngle = 180;
-		//			} else if (newAngle <= 0) {
-		//			
-		//				newAngle = 0;
-		//			}
-		//		}
-
-		//		float newAngle = leftStickAngle;
-		//		if (newAngle >= 180) {
-		//				
-		//			newAngle = 180;
-		//		} else if (newAngle <= 0) {
-		//						
-		//			newAngle = 0;
-		//		}
-		//
-		//		transform.parent.eulerAngles = Vector3.Lerp(transform.parent.eulerAngles, new Vector3 (0, 0, newAngle), .05f);
-
-		//		if (newAngle != transform.parent.eulerAngles.z) {
-		//			if (!rotate.isPlaying) {
-		//				//rotate.Play ();
-		//			}
-		//
-		//		} else {
-		//			if (rotate.isPlaying) {
-		//				//rotate.Stop();
-		//			}
-		//		}
-
-		//spin based on rightstickangle
-		//		newAngle = Mathf.LerpAngle (transform.eulerAngles.z, rightStickAngle, 0.2f);
-		//		transform.eulerAngles = new Vector3 (0, 0, newAngle);
-
-		//Input.GetAxis ("Rotate");
 
 		FindPlayerInput ();
 
 	}
 
-	//	public void RotateLeft(){
-	////		transform.eulerAngles = Vector3.RotateTowards (transform.eulerAngles, new Vector3 (0f, 0f, 360f), 0f, rotationSpeed * Time.deltaTime);
-	//		transform.parent.Rotate(new Vector3(0,0,500*Time.deltaTime));
-	//		leftStickAngle = transform.localEulerAngles.z;
-	//	}
-	//
-	//	public void RotateRight(){
-	////		transform.eulerAngles = Vector3.RotateTowards (transform.eulerAngles, new Vector3 (0f, 0f, -0f), 0f, rotationSpeed * Time.deltaTime);
-	//		transform.parent.Rotate(new Vector3(0,0,-500*Time.deltaTime));
-	//		leftStickAngle = transform.localEulerAngles.z;
-	//	}
 
-	//	void SpinLeft(){
-	//		transform.eulerAngles += new Vector3 (0f, 0f, spinSpeed * Time.deltaTime);
-	//		rightStickAngle = transform.localEulerAngles.z;
-	//	}
-	//
-	//	void SpinRight(){
-	//		transform.eulerAngles -= new Vector3 (0f, 0f, spinSpeed * Time.deltaTime);
-	//		rightStickAngle = transform.localEulerAngles.z;
-	//	}
 
 	public void Reset(){
-		//transform.parent.position = new Vector3 (-0f, -0.43f, 0f);
-		//transform.localPosition = new Vector3 (0,-4f,0f);
-		//transform.localEulerAngles = new Vector3 (0f, 0f, 180f);
-		//rightStickAngle = 0f;
-		//leftStickAngle = 0f;
+		
 
 		gameStarted = false;
 	}
@@ -237,14 +151,7 @@ public class P2Control : MonoBehaviour {
 				Shoot ();
 				fire.Play ();
 			}
-
-
-			//		if (gameLogic.score >= 30f) {
-			//			if (Input.GetButtonDown ("Fire3")) {
-			//				Shoot ();
-			//				fire.Play ();
-			//			}
-			//		}
+				
 		}
 	}
 	void Shoot ()
@@ -254,32 +161,6 @@ public class P2Control : MonoBehaviour {
 			Instantiate(bullet, blaster.position,
 				transform.rotation); 
 	}
-	//	void GetJoystickAngles()
-	//	{
-	//
-	//		float leftX = Input.GetAxis ("RotateX");
-	//		float leftY = Input.GetAxis ("RotateY");
-	//
-	//		float rightX = Input.GetAxis ("SpinX");
-	//		float rightY = Input.GetAxis ("SpinY");
-	//
-	//		Vector2 leftStickVector = new Vector2 (leftX, leftY);
-	//		Vector2 rightStickVector = new Vector2 (rightX, rightY);
-	//
-	//		//how far did I move the stick
-	//		float leftStickDisplacement = leftStickVector.magnitude; //length of the vector
-	//		float rightStickDisplacement = rightStickVector.magnitude; //length of the vector
-	//
-	//		if (leftStickDisplacement > 0.2f) {
-	//			//update the angle
-	//			leftStickAngle = Mathf.Atan2 (leftY, leftX) * Mathf.Rad2Deg + 90f;
-	//		}
-	//
-	//		if (rightStickDisplacement > 0.2f) {
-	//			rightStickAngle = Mathf.Atan2 (rightY, rightX) * Mathf.Rad2Deg - 90f;
-	//		}
-	//
-	//	}
 
 	void GameOverScreen(){
 		Application.LoadLevel (3);

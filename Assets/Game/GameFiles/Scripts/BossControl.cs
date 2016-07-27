@@ -11,7 +11,6 @@ public class BossControl : MonoBehaviour {
 	GameObject mothership;
 	GameObject game;
 	GameObject player;
-	//PlayerControl2 playerNew;
 	float moveForce = 8f;
 	float timeSinceSpawn;
 	float moveDelay = 0.2f; 
@@ -32,8 +31,6 @@ public class BossControl : MonoBehaviour {
 		timeSinceSpawn = 0;
 		hasPlayedSound = false;
 		player = GameObject.Find("ship");
-		//playerNew = player.GetComponent<PlayerControl2>();
-
 	}
 
 	// Update is called once per frame
@@ -52,7 +49,6 @@ public class BossControl : MonoBehaviour {
 
 			rigidBody.AddForce(directionToMothership*moveForce);
 			if (hasPlayedSound == false){ 
-				//				GetComponent<AudioSource>().Play();
 				hasPlayedSound = true;
 			}
 		}
@@ -61,7 +57,6 @@ public class BossControl : MonoBehaviour {
 
 		if (timeSpentAlive > 19f) 
 		{
-			//Destroy(gameObject);
 			DeathAnimationTimer();
 		}
 
