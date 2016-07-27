@@ -64,23 +64,23 @@ public class BulletScript : MonoBehaviour {
 		}
 
 
-	if (Other.gameObject.GetComponent( typeof(PlayerControl2) ) != null &&
-		Other.gameObject != player ) 
-		{
-			removeMe();
-		}
-
-		if (Other.gameObject.GetComponent( typeof(PlayerControlPlayer2) ) != null &&
-		    Other.gameObject != player ) 
-		{
-			removeMe();
-		}
-			removeMe(); 
-
-		if (Other.gameObject.tag == "Boss") {
-			removeMe ();
-
-		}
+//	if (Other.gameObject.GetComponent( typeof(PlayerControl2) ) != null &&
+//		Other.gameObject != player ) 
+//		{
+//			removeMe();
+//		}
+//
+//		if (Other.gameObject.GetComponent( typeof(PlayerControlPlayer2) ) != null &&
+//		    Other.gameObject != player ) 
+//		{
+//			removeMe();
+//		}
+//			removeMe(); 
+//
+//		if (Other.gameObject.tag == "Boss") {
+//			removeMe ();
+//
+//		}
 		}
 	
 

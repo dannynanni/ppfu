@@ -9,7 +9,7 @@ public class EnemyControl : MonoBehaviour {
 	GameObject mothership;
 	GameObject game;
 	GameObject player;
-	PlayerControl2 playerNew;
+	//PlayerControl2 playerNew;
 
 	//float moveForce= 0.4f;
 	float moveForce = 0.09999999f;
@@ -33,7 +33,7 @@ public class EnemyControl : MonoBehaviour {
 		hasPlayedSound = false;
 
 		player = GameObject.Find("ship");
-		playerNew = player.GetComponent<PlayerControl2>();
+		//playerNew = player.GetComponent<PlayerControl2>();
 	} 
 
 	void Update () {
