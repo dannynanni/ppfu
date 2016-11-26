@@ -28,7 +28,7 @@ public class Cutscene2Script : MonoBehaviour {
 	}
 	
 	void Cutscene(){
-		Application.LoadLevel (1);
+		Application.LoadLevel (2);
 	}
 	
 	void LoadCutscene(){
