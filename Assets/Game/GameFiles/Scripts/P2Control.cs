@@ -142,7 +142,7 @@ public class P2Control : MonoBehaviour {
 	{
 
 		if (!disableInput) {
-			if (InputManager.ActiveDevice.LeftTrigger.WasPressed) {//Input.GetButtonDown ("Fire2")) {
+			if (InputManager.ActiveDevice.RightTrigger.WasPressed) {//Input.GetButtonDown ("Fire2")) {
 				Shoot ();
 				fire.Play ();
 			}

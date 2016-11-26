@@ -134,7 +134,7 @@ public class P1Control : MonoBehaviour {
 	{
 
 		if (!disableInput) {
-			if (InputManager.ActiveDevice.RightTrigger.WasPressed) {//Input.GetButtonDown ("Fire1")) {
+			if (InputManager.ActiveDevice.LeftTrigger.WasPressed) {//Input.GetButtonDown ("Fire1")) {
 				Shoot ();
 				fire.Play ();
 			}
