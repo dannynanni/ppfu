@@ -17,7 +17,7 @@ public class MenuManager : MonoBehaviour {
 			StartGame (1);
 		}
 
-		if (InputManager.ActiveDevice.Command.WasPressed) {//Input.GetButtonDown ("ResetGame")) {
+		if (InputManager.ActiveDevice.Action4.WasPressed) {//Input.GetButtonDown ("ResetGame")) {
 			StartGame (0);
 		}
 	}
