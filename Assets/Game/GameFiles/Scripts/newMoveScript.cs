@@ -26,7 +26,6 @@ public class newMoveScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		//myClamp += Time.deltaTime * clampSpinRate;
 		clampCenter += Time.deltaTime * clampSpinRate;
 		rotationPosition += Time.deltaTime * clampSpinRate;
 		if (myClamp >= 360f) {
@@ -62,46 +61,16 @@ public class newMoveScript : MonoBehaviour {
 		else if(rotationPosition < clampCenter - 90) {
 			rotationPosition = clampCenter - 88;
 		}
+		rotationPosition += Time.deltaTime * clampSpinRate;
 		transform.parent.rotation = Quaternion.Euler(0, 0, rotationPosition % 360);
-/*		transform.parent.rotation = Quaternion.Slerp 
-			(transform.parent.rotation, Quaternion.Euler(new Vector3 (0, 0, myStick)), moveRate);
-
-		if (myClampAlt > myClamp) 
-		{
-			if (transform.parent.rotation.eulerAngles.z <= myClamp) 
-			{
-				transform.parent.rotation = Quaternion.Euler(new Vector3 (0, 0, myClamp));
-			} 
-			else if (transform.parent.rotation.eulerAngles.z >= myClampAlt) 
-			{
-				transform.parent.rotation = Quaternion.Euler(new Vector3 (0, 0, myClampAlt));
-			}
-		} 
-		else
-		{
-			float middleClamp = (myClamp + myClampAlt) * 0.5f;
-			if (transform.parent.rotation.eulerAngles.z < myClamp && transform.parent.rotation.eulerAngles.z > myClampAlt) 
-			{
-				if (transform.parent.rotation.eulerAngles.z < middleClamp) {
-					Debug.Log("myclampAlt");
-					transform.parent.rotation = Quaternion.Euler(new Vector3 (0, 0, myClampAlt));	
-				} else {
-					Debug.Log(myStick);
-					transform.parent.rotation = Quaternion.Euler(new Vector3 (0, 0, myClamp));
-
-					Debug.Log(transform.parent.rotation.z);
-				}
-			} 
-				
-		}
-*/	}
+	}
 
 	void StickInput ()
 	{
-		float leftX = InputManager.ActiveDevice.LeftStick.X;//Input.GetAxis ("RotateX");
-		float leftY = InputManager.ActiveDevice.LeftStick.Y;//Input.GetAxis ("RotateY");
-		float rightX = InputManager.ActiveDevice.RightStick.X;//Input.GetAxis ("RotateX2");
-		float rightY = InputManager.ActiveDevice.RightStick.Y;//Input.GetAxis ("RotateY2");
+		float leftX = InputManager.ActiveDevice.LeftStick.X;
+		float leftY = InputManager.ActiveDevice.LeftStick.Y;
+		float rightX = InputManager.ActiveDevice.RightStick.X;
+		float rightY = InputManager.ActiveDevice.RightStick.Y;
 
 		Vector2 leftStickVector = new Vector2 (leftX, leftY);
 		float leftStickDisplacement = leftStickVector.magnitude; //length of the vector
@@ -112,8 +81,6 @@ public class newMoveScript : MonoBehaviour {
 		if (leftStickDisplacement > 0.3f) {
 			 
 			if (gameObject.name == "ship") {
-//				float leftX2 = Input.GetAxis ("RotateX");
-//				float leftY2 = Input.GetAxis ("RotateY");
 				myStick = Mathf.Atan2 (leftY, leftX) * Mathf.Rad2Deg;
 			}
 		}
@@ -121,8 +88,6 @@ public class newMoveScript : MonoBehaviour {
 		if (rightStickDisplacement > 0.3f){
 
 		if (gameObject.name == "ship2") {
-//			float rightX2 = Input.GetAxis ("RotateX2");
-//			float rightY2 = Input.GetAxis ("RotateY2");
 			myStick = Mathf.Atan2 (rightY, rightX) * Mathf.Rad2Deg;
 			}
 		}
