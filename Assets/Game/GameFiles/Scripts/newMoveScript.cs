@@ -10,6 +10,7 @@ public class newMoveScript : MonoBehaviour {
 	public float myClamp;
 	public float myClampAlt;
 	public float clampCenter;
+	public float rotationPosition;
 	public bool teleportingAllowed;
 
 	// Use this for initialization
@@ -27,7 +28,7 @@ public class newMoveScript : MonoBehaviour {
 
 		//myClamp += Time.deltaTime * clampSpinRate;
 		clampCenter += Time.deltaTime * clampSpinRate;
-		transform.parent.Rotate(0, 0, Time.deltaTime * clampSpinRate);
+		rotationPosition += Time.deltaTime * clampSpinRate;
 		if (myClamp >= 360f) {
 			myClamp -= 360f;
 		}
@@ -37,11 +38,11 @@ public class newMoveScript : MonoBehaviour {
 
 
 		myStick = (myStick + 360) % 360;
-		myClamp = (myClamp + 360) % 360;
-		myClampAlt = myClamp + 180;
-		myClampAlt = (myClampAlt + 360) % 360;
+
 		if(clampCenter > 270) {
-			myStick += clampCenter - 270;
+			if(myStick < 90) {
+				myStick += 360;
+			}
 			if(clampCenter > 450) {
 				clampCenter %= 360;
 				myStick %= 360;
@@ -49,19 +50,19 @@ public class newMoveScript : MonoBehaviour {
 		}
 
 		if(teleportingAllowed) {
-			transform.parent.rotation = Quaternion.Euler(0, 0, myStick);
+			rotationPosition = myStick;
 			}
-		else if(Mathf.Abs(transform.parent.rotation.eulerAngles.z - myStick) < 100) {
-			transform.parent.rotation = Quaternion.Euler(0, 0, myStick);
+		else if(Mathf.Abs(rotationPosition - myStick) < 100) {
+			rotationPosition = myStick;
 		}
-		if(transform.parent.rotation.eulerAngles.z > clampCenter + 90) {
-			Debug.Log("greater than");
-			Debug.Log(transform.parent.rotation.eulerAngles.z);
+		if(rotationPosition > clampCenter + 90) {
+			rotationPosition = clampCenter + 88;
 			transform.parent.rotation = Quaternion.Euler(0, 0, clampCenter + 88);
 		}
-		else if(transform.parent.rotation.eulerAngles.z < clampCenter - 90) {
-			transform.parent.rotation = Quaternion.Euler(0, 0, clampCenter - 88);
+		else if(rotationPosition < clampCenter - 90) {
+			rotationPosition = clampCenter - 88;
 		}
+		transform.parent.rotation = Quaternion.Euler(0, 0, rotationPosition % 360);
 /*		transform.parent.rotation = Quaternion.Slerp 
 			(transform.parent.rotation, Quaternion.Euler(new Vector3 (0, 0, myStick)), moveRate);
 
@@ -125,7 +126,6 @@ public class newMoveScript : MonoBehaviour {
 			myStick = Mathf.Atan2 (rightY, rightX) * Mathf.Rad2Deg;
 			}
 		}
-
 
 	}
 }
