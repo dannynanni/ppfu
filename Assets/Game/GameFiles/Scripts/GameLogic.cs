@@ -69,7 +69,6 @@ public class GameLogic : MonoBehaviour {
 					newEnemyPosition += new Vector2 (Mathf.Cos (enemySpawnAngle), Mathf.Sin (enemySpawnAngle)) * enemySpawnDistance;
 
 					overlappingCollider = Physics2D.OverlapCircle (newEnemyPosition, Mathf.Sqrt (Mathf.Pow (scaleX * 2.5f, 2) + Mathf.Pow (scaleY * 3.65f, 2)));
-					Debug.Log (overlappingCollider);
 				} while(overlappingCollider != null);
 
 				GameObject newEnemy = Instantiate (enemyPrefab, newEnemyPosition, Quaternion.identity) as GameObject;
@@ -78,8 +77,6 @@ public class GameLogic : MonoBehaviour {
 
 				timeSinceLastEnemyCreated = 0; 
 				currentEnemySpawnDelay *= 1f;
-				if (currentEnemySpawnDelay < 0.5f)
-					currentEnemySpawnDelay = 0.5f;
 		}
 	
 	}
@@ -90,10 +87,17 @@ public class GameLogic : MonoBehaviour {
 
 
 		Vector2 newBossPosition;
-		float enemyBossDistance = Random.Range (27f, 42f);
-		float enemyBossAngle = Random.Range (-Mathf.PI, Mathf.PI);
-		newBossPosition = planet.transform.position;
-		newBossPosition += new Vector2 (Mathf.Cos (enemyBossAngle), Mathf.Sin (enemyBossAngle)) * enemyBossDistance;
+		Collider2D overlappingCollider;
+		float distanceUpperBound = 42f;
+		do {
+			float enemyBossDistance = Random.Range (27f, distanceUpperBound);
+			float enemyBossAngle = Random.Range (-Mathf.PI, Mathf.PI);
+			newBossPosition = planet.transform.position;
+			newBossPosition += new Vector2 (Mathf.Cos (enemyBossAngle), Mathf.Sin (enemyBossAngle)) * enemyBossDistance;
+
+			overlappingCollider = Physics2D.OverlapCircle(newBossPosition, Mathf.Sqrt(Mathf.Pow(boss.transform.lossyScale.x * 2.5f, 2) + Mathf.Pow(boss.transform.lossyScale.y * 3.65f, 2)));
+			distanceUpperBound += 0.1f;
+		} while(overlappingCollider != null);
 		Instantiate (boss, newBossPosition, Quaternion.identity);
 		bossAlive = true;
 		StartZoomOut ();

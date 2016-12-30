@@ -77,6 +77,7 @@ public class GameLogicMenu : MonoBehaviour {
 
 				timeSinceLastEnemyCreated = 0; 
 				currentEnemySpawnDelay *= 1f;
+			}
 		}
 
 	}
