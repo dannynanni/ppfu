@@ -69,7 +69,6 @@ public class GameLogicMenu : MonoBehaviour {
 					newEnemyPosition += new Vector2 (Mathf.Cos (enemySpawnAngle), Mathf.Sin (enemySpawnAngle)) * enemySpawnDistance;
 
 					overlappingCollider = Physics2D.OverlapCircle (newEnemyPosition, Mathf.Sqrt (Mathf.Pow (scaleX * 2.5f, 2) + Mathf.Pow (scaleY * 3.65f, 2)));
-					Debug.Log (overlappingCollider);
 				} while(overlappingCollider != null);
 
 				GameObject newEnemy = Instantiate (enemyPrefab, newEnemyPosition, Quaternion.identity) as GameObject;

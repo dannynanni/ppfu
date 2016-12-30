@@ -9,6 +9,8 @@ public class newMoveScript : MonoBehaviour {
 	public float clampSpinRate;
 	public float myClamp;
 	public float myClampAlt;
+	public float clampCenter;
+	public bool teleportingAllowed;
 
 	// Use this for initialization
 	void Start () {
@@ -23,7 +25,9 @@ public class newMoveScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		myClamp += Time.deltaTime * clampSpinRate;
+		//myClamp += Time.deltaTime * clampSpinRate;
+		clampCenter += Time.deltaTime * clampSpinRate;
+		transform.parent.Rotate(0, 0, Time.deltaTime * clampSpinRate);
 		if (myClamp >= 360f) {
 			myClamp -= 360f;
 		}
@@ -31,12 +35,34 @@ public class newMoveScript : MonoBehaviour {
 	
 		StickInput ();
 
+
 		myStick = (myStick + 360) % 360;
 		myClamp = (myClamp + 360) % 360;
 		myClampAlt = myClamp + 180;
 		myClampAlt = (myClampAlt + 360) % 360;
+		if(clampCenter > 270) {
+			myStick += clampCenter - 270;
+			if(clampCenter > 450) {
+				clampCenter %= 360;
+				myStick %= 360;
+			}
+		}
 
-		transform.parent.rotation = Quaternion.Slerp 
+		if(teleportingAllowed) {
+			transform.parent.rotation = Quaternion.Euler(0, 0, myStick);
+			}
+		else if(Mathf.Abs(transform.parent.rotation.eulerAngles.z - myStick) < 100) {
+			transform.parent.rotation = Quaternion.Euler(0, 0, myStick);
+		}
+		if(transform.parent.rotation.eulerAngles.z > clampCenter + 90) {
+			Debug.Log("greater than");
+			Debug.Log(transform.parent.rotation.eulerAngles.z);
+			transform.parent.rotation = Quaternion.Euler(0, 0, clampCenter + 88);
+		}
+		else if(transform.parent.rotation.eulerAngles.z < clampCenter - 90) {
+			transform.parent.rotation = Quaternion.Euler(0, 0, clampCenter - 88);
+		}
+/*		transform.parent.rotation = Quaternion.Slerp 
 			(transform.parent.rotation, Quaternion.Euler(new Vector3 (0, 0, myStick)), moveRate);
 
 		if (myClampAlt > myClamp) 
@@ -56,14 +82,18 @@ public class newMoveScript : MonoBehaviour {
 			if (transform.parent.rotation.eulerAngles.z < myClamp && transform.parent.rotation.eulerAngles.z > myClampAlt) 
 			{
 				if (transform.parent.rotation.eulerAngles.z < middleClamp) {
+					Debug.Log("myclampAlt");
 					transform.parent.rotation = Quaternion.Euler(new Vector3 (0, 0, myClampAlt));	
 				} else {
+					Debug.Log(myStick);
 					transform.parent.rotation = Quaternion.Euler(new Vector3 (0, 0, myClamp));
+
+					Debug.Log(transform.parent.rotation.z);
 				}
 			} 
 				
 		}
-	}
+*/	}
 
 	void StickInput ()
 	{
