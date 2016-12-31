@@ -52,6 +52,7 @@ public class GameLogic : MonoBehaviour {
 			//They spawn randomly within an area of 27 - 42
 
 			scoreText.text = "" + score;
+			MenuManager.score = score;
 			timeSinceLastEnemyCreated += Time.deltaTime; 
 
 			if (timeSinceLastEnemyCreated > currentEnemySpawnDelay) { 

@@ -4,9 +4,16 @@ using InControl;
 
 public class MenuManager : MonoBehaviour {
 
+	public static int score;
 	// Use this for initialization
 	void Start () {
-	
+		HighScoreManager highScoreManager = GetComponent<HighScoreManager>();
+		if(highScoreManager.MadeHighScoreList(score)) {
+			highScoreManager.InputNewName(score);
+		}
+		else {
+			highScoreManager.PrintScores();
+		}
 	}
 	
 	// Update is called once per frame

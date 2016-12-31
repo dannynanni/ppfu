@@ -18,7 +18,6 @@ public class MothershipScript : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D (Collision2D thisCollision){
-		Debug.Break();
 		if (thisCollision.gameObject.tag == "Enemy") {
 			Debug.Log ("gameoverload");
 			Instantiate (particle, this.transform.position, this.transform.rotation);
