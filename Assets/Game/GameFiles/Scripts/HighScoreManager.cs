@@ -65,24 +65,27 @@ public class HighScoreManager : MonoBehaviour {
 			}
 			else {
 				HighScoreDisplay.text = "ENTER YOUR NAME\n " + nameEntry + alphabet[charPosition].ToString();
-				if(InputManager.ActiveDevice.LeftStick.X > 0) {
-					charPosition += 1;
-					if(charPosition >= alphabet.Length) {
-						charPosition = 0;
+				// This forces the stick to return to neutral
+				if(!InputManager.ActiveDevice.LeftStick.LastState) {
+					if(InputManager.ActiveDevice.LeftStick.X > 0) {
+						charPosition += 1;
+						if(charPosition >= alphabet.Length) {
+							charPosition = 0;
+						}
 					}
-				}
-				else if(InputManager.ActiveDevice.LeftStick.X < 0) {
-					charPosition -= 1;
-					if(charPosition < 0) {
-						charPosition = alphabet.Length - 1;
+					else if(InputManager.ActiveDevice.LeftStick.X < 0) {
+						charPosition -= 1;
+						if(charPosition < 0) {
+							charPosition = alphabet.Length - 1;
+						}
 					}
-				}
-				if(InputManager.ActiveDevice.Action1.WasPressed) {
-					nameEntry = string.Concat(nameEntry, alphabet[charPosition].ToString());
-					if(nameEntry.Length > 2) {
-						CreateNewEntry(nameEntry, scoreEntry);
-						enteringScore = false;
-						PrintScores();
+					if(InputManager.ActiveDevice.Action1.WasPressed) {
+						nameEntry = string.Concat(nameEntry, alphabet[charPosition].ToString());
+						if(nameEntry.Length > 2) {
+							CreateNewEntry(nameEntry, scoreEntry);
+							enteringScore = false;
+							PrintScores();
+						}
 					}
 				}
 			}
