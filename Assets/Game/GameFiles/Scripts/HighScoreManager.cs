@@ -65,6 +65,7 @@ public class HighScoreManager : MonoBehaviour {
 			}
 			else {
 				HighScoreDisplay.text = "ENTER YOUR NAME\n " + nameEntry + alphabet[charPosition].ToString();
+				HighScoreDisplay.alignment = TextAnchor.MiddleCenter;
 				// This forces the stick to return to neutral
 				if(!InputManager.ActiveDevice.LeftStick.LastState) {
 					if(InputManager.ActiveDevice.LeftStick.X > 0) {

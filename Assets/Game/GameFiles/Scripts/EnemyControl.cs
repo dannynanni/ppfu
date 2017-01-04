@@ -70,7 +70,7 @@ public class EnemyControl : MonoBehaviour {
 
 
 		timeSpentAlive += Time.deltaTime;
-		if (timeSpentAlive > 11f) 
+		if (timeSpentAlive > 18f) 
 		{
 			Destroy(gameObject);
 		}

@@ -21,6 +21,7 @@ public class newMoveScript : MonoBehaviour {
 			myStick = 180;
 		}
 
+		teleportingAllowed = true;
 	}
 	
 	// Update is called once per frame

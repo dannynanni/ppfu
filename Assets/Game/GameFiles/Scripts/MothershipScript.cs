@@ -40,7 +40,7 @@ public class MothershipScript : MonoBehaviour {
 	}
 
 	void GameOverScreen(){
-		Application.LoadLevel (3);
+		Application.LoadLevel (2);
 	}
 	
 	void LoadGameOver(){
