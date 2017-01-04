@@ -107,7 +107,7 @@ public class HighScoreManager : MonoBehaviour {
 			scoreList = string.Concat(scoreList, entry.GetEntry(), "\n");
 		}
 		HighScoreDisplay.text = scoreList;
-		HighScoreDisplay.alignment = TextAnchor.UpperCenter;
+		HighScoreDisplay.alignment = TextAnchor.MiddleCenter;
 	}
 
 	public void ClearLeaderBoard() {
