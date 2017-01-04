@@ -42,6 +42,7 @@ public class HighScoreManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
+		//ClearLeaderBoard ();
 		enteringScore = false;
 		HighScoreHeader = SceneManager.GetActiveScene().name + "HighScore";
 		entries = new List<Entry>();
